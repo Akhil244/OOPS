@@ -10,7 +10,7 @@ class Inheritancedemo{
 
      1) simple inheritance
      2) multi level inheritance
-     3) multiple inheritance
+     3) multiple inheritance (not supported by java but we can implement it using interfaces)
      4) hierarchial inheritance
      a child can accces the parent method but parentr cant access the child methods
 
@@ -26,12 +26,40 @@ class Inheritancedemo{
 
     }
 
-    static class Enggstud extends Student{
+    static class Enggstud extends Student{ // child class
 
         public void labs(){
             System.out.println("labs marked");
         }
     }
+
+    // for hierarchial inheritance 
+    /* 
+        it follows this structure (B and C both extend A)
+                 A
+                / \
+               B   C 
+     */
+    // lets add this for hierarchial inheritance
+
+    static class Medicalstud extends Student{
+        void labs(){
+            System.out.println("Attended medical labs");
+        }
+    }
+
+    // multiple inheritance can be implemented by us but its not recommended because of diamond problem 
+
+    // multiple inheritance is the reverse of hierarchial inheritance
+    /*      
+        A   B  (parents to C)
+         \ /
+          C
+    
+    diamond problem is class trying to extend multiple classes having the same method
+    in the above case its A and B having the same method and C trying to inherit both at same time
+    creating confusion on what method to access
+    */
 
     public static void main(String args[]){
         
@@ -43,5 +71,11 @@ class Inheritancedemo{
 
         e.mark();
         e.labs(); // can mark as well as attend lab
+
+        Medicalstud md=new Medicalstud();
+
+        md.mark();
+        md.labs(); // calls its own lab not engg stud labs cuz of hierarchial inheritance
+
     }
 }
