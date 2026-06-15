@@ -12,8 +12,10 @@ class Inheritancedemo{
      2) multi level inheritance
      3) multiple inheritance (not supported by java but we can implement it using interfaces)
      4) hierarchial inheritance
-     a child can accces the parent method but parentr cant access the child methods
+     a child can accces the parent method but parent cant access the child methods
 
+     it can be done using abstract classes 
+     
     */
 
    // lets implement simple inheritance 
@@ -59,6 +61,8 @@ class Inheritancedemo{
     diamond problem is class trying to extend multiple classes having the same method
     in the above case its A and B having the same method and C trying to inherit both at same time
     creating confusion on what method to access
+
+    Note : if you add the keyword final to any class -> child classes cannot inherit that particular class
     */
 
     public static void main(String args[]){

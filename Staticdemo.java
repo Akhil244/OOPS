@@ -23,6 +23,26 @@ class Staticdemo{
             this.rno=rno;
         }
     }
+    
+    // Note : static wont allow overriding of methods ; private,final methods also cant be overriden
+    // look at the sample example for satataic category
+
+    // overriding can be only perfromed for normal methods but cannot be done for variables 
+
+    static class Aa{
+        static void fn(){
+            System.out.println("this is A's method");
+        }
+    }
+
+    static class Ba extends Aa{
+
+        //trying to override the method fn()
+        static void fn(){
+           System.out.println("this is B's method");
+        }
+
+    } 
     public static void main(String args[]){
 
         Scanner sc = new Scanner(System.in);
@@ -56,6 +76,12 @@ class Staticdemo{
 
         System.out.println(s2.name+" "+s2.age+" "+s2.rno+" "+s2.clg);
 
+        //showcasing that static methods cant be overriden 
+        // that means once you crated a refrence to a particular class the object is binded to the class
+        // it cant be changed 
 
+        Aa aa = new Ba(); // we are trying to invoke the methods of B insteaad of A using run time polymorphism 
+
+        aa.fn(); // we get to see the fn method of A not B's
     }
 }
